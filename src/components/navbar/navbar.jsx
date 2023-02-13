@@ -8,13 +8,13 @@ import { SearchBar } from "../";
 
 const Navbar = () => {
   return (
-    <Stack 
+    <Stack
       direction={'row'}
       alignItems={'center'} 
       justifyContent={'space-around'} 
       p={2} 
       sx={
-        {position: 'sticky', top: 0, zIndex: 999, background: colors.primary}}
+        {position: 'sticky', top: 0, zIndex: 999, background: colors.primary,}}
       >      
       <Link to={"/"} >
       <img src={logo} alt='' height={60}/>
@@ -26,4 +26,3 @@ const Navbar = () => {
 }
 
 export default Navbar;
-
