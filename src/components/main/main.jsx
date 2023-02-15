@@ -2,7 +2,7 @@ import { useState, useEffect} from 'react';
 import { Box, Container, Typography, Stack} from '@mui/material';
 import { colors } from '../../constants/colors';
 import { Category, Videos } from "../";
-import { ApiService, BASE_URI } from "../../service/api.service";
+import { ApiService} from "../../service/api.service";
 
 
 const Main = () => {
@@ -12,18 +12,19 @@ const Main = () => {
   const selectedCategoryHandler = category => setselectedCategory(category)
 
   useEffect(() => {
-    // const data = ApiService.fetch('search').then(data => console.log())
-    // fetch(`https://youtube-v31.p.rapidapi.com`, {
-    //   method: "GET",
-    // })
-    //   .then((res) => res.json())
-    //   .then((result) => {
-    //     console.log(result);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    const getData = async () =>{
+      try {
+        const data = await ApiService.fetching('search')
+        setVideos(data.items)
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    getData()
   }, [])
+  
+  
   
 
   return (
