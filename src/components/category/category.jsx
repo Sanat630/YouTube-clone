@@ -6,7 +6,7 @@ import { colors } from "../../constants/colors";
 
 const Category = ({ selectedCategoryHandler, selectedCategory}) => {
   return (
-    <Stack direction={'row'} sx={{ overflowX: "scroll"}}>
+    <Stack direction={'row'} sx={{ overflowX: "scroll", gap: '5px'}}>
         {category.map(item => (
             <button key={item.name} 
             className='category-btn' 
