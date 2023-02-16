@@ -1,4 +1,4 @@
-import { CheckBox, CheckCircle } from '@mui/icons-material'
+import { CheckCircle } from '@mui/icons-material'
 import { CardContent, CardMedia, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React from 'react'

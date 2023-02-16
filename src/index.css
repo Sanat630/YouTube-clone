@@ -44,3 +44,9 @@
 .category-btn:hover span{
   color: white !important;
 }
+
+@media screen and (max-width: 680px){
+  .search-bar{
+    width: 200px;
+  }
+}
