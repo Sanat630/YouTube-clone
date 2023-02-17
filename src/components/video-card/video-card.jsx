@@ -4,20 +4,22 @@ import { colors } from '../../constants/colors'
 import moment from 'moment';
 import { Stack } from '@mui/system';
 import { CheckCircle } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 
 const VideoCard = ({ video }) => {
   return (
-    <Card sx={{ width: '320px',  boxShadow: 'none', borderRadius: '5px'}}>
-        <CardMedia 
-        image={video?.snippet?.thumbnails?.high?.url} 
-        alt={video?.snippet?.title} 
-        sx={{width: '360px', height: '180px'}} />
+    <Card sx={{ width: '320px', boxShadow: 'none', borderRadius: '5px'}}>
+        <Link to={`/video/${video.id.videoId}`}>
+            <CardMedia 
+            image={video?.snippet?.thumbnails?.high?.url} 
+            alt={video?.snippet?.title} 
+            sx={{width: '360px', height: '180px'}} />
+        </Link>
         <CardContent sx={{ background: colors.primary, height: '150px', position: 'relative'}}>
-            <>
+            <Link to={`/video/${video.id.videoId}`}>
             <Typography my={"5px"} sx={{ opacity: '.4' }}>
                 {moment(video?.snippet?.publishedAt).fromNow()}
-                {/* {video.statistics.likeCount.splice("views")} */}
             </Typography>
             <Typography variant='subtitle1' fontWeight={'bold'}>
                 {video?.snippet?.title.slice(0, 50)}
@@ -25,7 +27,7 @@ const VideoCard = ({ video }) => {
             <Typography variant='subtitle2' sx={{opacity: '.6'}}>
             {video?.snippet?.description.slice(0, 70)}
             </Typography>
-            </>
+            </Link>
             <>
             <Stack direction={'row'} position={'absolute'} alignItems={'center'} gap={'5px'}>
                 <Avatar src={video?.snippet?.thumbnails?.high?.url} />
